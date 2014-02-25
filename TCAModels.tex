@@ -1,0 +1,57 @@
+\documentclass{article}
+
+
+\usepackage[margin=1in]{geometry}
+\begin{document}
+
+\title{Thermochemical Ablation (TCA) Model}
+\date{}
+\author{Martin Jones}
+\maketitle
+\thispagestyle{empty}
+
+We start by defining an open system in our liver that has the following energy balance:
+
+\begin{equation}
+\label{master}
+\dot{E}_{in}-\dot{E}_{out}=\dot{E}_{stor}-\dot{E}_{gen}
+\end{equation}
+
+Recalling we have the following equations for the enthalpy of formation and heat of reaction, we are able to form our equation,
+\begin{equation}
+\Delta H^{\Theta}=\sum \Delta v_{p}\Delta H^{\Theta}_{f}(products)-\sum \Delta v_{r}\Delta H^{\Theta}_{f}(reactants)
+\end{equation}
+\begin{equation}
+\label{heatofreaxion}
+\Delta H^{\Theta}=q_{r}=mc_{p}\Delta T
+\end{equation}
+Where $\Delta H^{\Theta}$ is the enthalpy of formation, $v_{p,f}$ is the stoichiometric constant for products or reactants, $\Delta H^{\Theta}_{f}$ is the standard enthalpy of formation for the products or reactants, $q_{r}$ is the heat of reaction, $m$ is the mass, $c_p$ is the specific heat, and $T$ or $u$ is the temperature.  
+
+The LHS can be related to the heat flux across the boundary of the system. It turns out to be $-\vec{\nabla}\cdot(k\vec{\nabla u})$. And there is no stored heat, so $\dot{E}_{stor}=0$. Now, employing equation (\ref{heatofreaxion}), and taking the time partial derivative we obtain a formula for the generated heat: (there is no blood perfusion because the liver is dead)???
+\begin{equation}
+\label{heatgen}
+\dot{E}_{gen}=\dot{q}_{r}=mc_{p}u_{t}
+\end{equation}
+Balancing dimensions and plugging into Equation (\ref{master}) we have, 
+\begin{equation}
+\rho c_{p}u_{t}=\vec{\nabla}\cdot(k\vec{\nabla u})
+\end{equation}
+Where $\rho$ is the density of the tissue, blood, salt, and water mixture. And $c_{p}$ is the specific heat of just the blood, tissue.
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,69 @@
+\documentclass{article}
+
+
+\usepackage[margin=1in]{geometry}
+\begin{document}
+
+\title{Fick's Law}
+\date{}
+\author{Martin Jones}
+\maketitle
+\thispagestyle{empty}
+Diffusion is a transport phenomenon that involves mass transport or mixing that does not require bulk motion. Fick's law for transient phenomena is written thus,
+
+\begin{equation} 
+\frac{\partial \phi}{\partial t} = \vec{\nabla} \cdot (D(\vec{x})\vec{\nabla} \phi)
+\end{equation} 
+Where $\phi$ and $D$ are concentration and diffusivity, repectively, scalar functions that depend on space and time. And we have $\phi(\vec{x},0)=\phi_{0}(\vec{x})$ and $\vec{\nabla}\phi \cdot \vec{\mathbf{n}}=0$ on the surface for our boundary conditions.
+
+Now multiply both sides by an arbitrary test function $V(x)$ and integrate over a volume $\Omega$. Also, integrating by parts on the RHS, the equation evolves to the following form,  (making use first of the following theorem):
+
+\begin{displaymath}
+\int_{\Omega}V\vec{\nabla}\cdot(D\vec{\nabla}\phi)d\Omega=\int_{S}V(D\vec{\nabla}\phi\cdot \vec{\mathbf{n}})dS-\int_{\Omega}D(\vec{\nabla}V\cdot \vec{\nabla} \phi)d\Omega
+\end{displaymath}
+
+ \begin{equation} 
+\int_{\Omega} \frac{\partial \phi}{\partial t} V(x)d\Omega = -\int_{\Omega}D(\vec{x})\vec{\nabla}V \cdot\vec{\nabla} \phi d\Omega
+\end{equation}
+Now we will discretize and write with basis functions in N dimensional space (using Einstein notation) where N is on the order of the number of elements in the mesh,
+
+\begin{equation}
+\phi (\vec{x},t_{k})=\phi_{i}^{k}\psi_{i}
+\end{equation}and
+\begin{equation}
+V(\vec{x})=V_{j}\psi_{j}
+\end{equation}
+
+Using the finite difference formula for the time derivative and plugging in we get,
+
+ \begin{equation} 
+\int_{\Omega} \left(\frac{\phi_{i}^{k+1}-\phi_{i}^{k}}{\Delta t}\right)\cdot \psi_{i} (V_{j}\cdot \psi_{j })d\Omega = -\int_{\Omega}D(\vec{x})\vec{\nabla}(V_{j}\psi_{j}) \cdot\vec{\nabla} (\phi_{i}^{k+1}\psi_{i}) d\Omega
+\end{equation}
+Now we may write N equations with N unknowns due to the arbitrariness of V (1 on the $i^{th}$ node and zero every where else). One gets,
+
+\begin{equation}
+\left(\frac{1}{\Delta t}\vec{M}+\vec{K}\right)\vec{\phi}^{k+1}=\frac{1}{\Delta t}\vec{M}\vec{\phi}^{k}
+\end{equation}
+Where M is given by,
+\begin{equation}
+M_{i,j}=\int_{\Omega}\psi_{i}\psi_{j}d\Omega
+\end{equation}
+and K is given by,
+\begin{equation}
+K_{i,j}=\int_{\Omega}D(\vec{x})\vec{\nabla}\psi_{i}\cdot \vec{\nabla}\psi_{j}d\Omega
+\end{equation}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
