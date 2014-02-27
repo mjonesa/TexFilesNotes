@@ -54,6 +54,28 @@ and K is given by,
 K_{i,j}=\int_{\Omega}D(\vec{x})\vec{\nabla}\psi_{i}\cdot \vec{\nabla}\psi_{j}d\Omega
 \end{equation}
 
+These equations describe the physics on the local grid. We want to describe them on the global grid, or our final mesh. Remembering the jacobian relating the differentials between the two coordinate systems: $(x,y)$, and $(\xi,\eta)$,
+\begin{equation}
+dx=\frac{\partial x}{\partial \xi}d \xi + \frac{\partial x}{\partial \eta}d \eta
+\end{equation}
+and,
+\begin{equation}
+dy=\frac{\partial y}{\partial \xi}d \xi + \frac{\partial y}{\partial \eta}d \eta
+\end{equation}
+We can obtain our final equations through these equations ultimately. They are.
+\begin{equation}
+k_{ij}^e=\int_{\Omega_e}\left[ k\left( \frac{\partial \psi_i^e}{\partial x}\frac{\partial \psi_j^e}{\partial x} + b\psi_i^e \psi_j^e  \right) \right]dxdy
+\end{equation}
+\begin{equation}
+f_i^e=\int_{\Omega_e}f\psi_i^edxdy
+\end{equation}
+\begin{equation}
+P_{ij}^e=\int_{\delta \Omega^e}p\psi_i^e\psi_j^e ds
+\end{equation}
+\begin{equation}
+\gamma_i^e = \int_{\delta \Omega^e} \gamma \psi_i^e ds
+\end{equation}
+
 \end{document}
 
 
